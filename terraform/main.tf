@@ -15,3 +15,7 @@ terraform {
     workspace_key_prefix = "terraform-state"
   }
 }
+
+resource "aws_s3_bucket" "terraform-test" {
+  bucket = "${var.bucket_prefix}-bucket"
+}

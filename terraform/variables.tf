@@ -7,3 +7,7 @@ variable "profile" {
   description = "Deployment Credentials"
   default = "tcollisi"
 }
+
+variable "bucket_prefix" {
+  type = string
+}

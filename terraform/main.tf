@@ -16,6 +16,6 @@ terraform {
   }
 }
 
-resource "aws_s3_bucket" "terraform-test" {
+resource "aws_s3_bucket" "terraform_test" {
   bucket = "${var.bucket_prefix}-bucket"
 }

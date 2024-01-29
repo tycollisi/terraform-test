@@ -6,7 +6,7 @@ run "name_match_uses_root_level_value" {
   command = plan
 
   assert {
-    condition = aws_s3_bucket.terraform-test.bucket == "test-bucket"
+    condition = aws_s3_bucket.terraform_test.bucket == "test-bucket"
     error_message = "S3 bucket name did not match expected"
   }
 }
@@ -20,6 +20,19 @@ run "name_match_overrides_root_level_value" {
   
   assert {
     condition = aws_s3_bucket.terraform_test.bucket == "other-bucket"
+    error_message = "S3 bucket name did not match expected"
+  }
+}
+
+run "name_match_reference_root_variable" {
+  command = plan
+
+  variables {
+    bucket_prefix = var.bucket_prefix
+  }
+
+  assert {
+    condition = aws_s3_bucket.terraform_test.bucket == "test-bucket"
     error_message = "S3 bucket name did not match expected"
   }
 }
